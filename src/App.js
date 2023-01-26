@@ -11,74 +11,75 @@ import 'reactflow/dist/style.css';
 
 const initialNodes = [
   {
-    id: '1',
-    type: 'input',
-    data: { label: 'Node 0' },
-    position: { x: 250, y: 5 },
-    className: 'light',
+    id: 'A',
+    data: { label: 'Title A' },
+    position: { x: 0, y: 0 },
+    style: {
+      width: '20%',
+      height: '100%',
+      backgroundColor: 'rgba(255, 0, 0, 0)',
+      color: 'white',
+      border: "solid 2px grey",
+    },
   },
   {
-    id: '2',
-    data: { label: 'Group A' },
-    position: { x: 100, y: 100 },
-    className: 'light',
-    style: { backgroundColor: 'rgba(255, 0, 0, 0.2)', width: 200, height: 200 },
-  },
-  {
-    id: '2a',
-    data: { label: 'Node A.1' },
-    position: { x: 10, y: 50 },
-    parentNode: '2',
-  },
-  { id: '3', data: { label: 'Node 1' }, position: { x: 320, y: 100 }, className: 'light' },
-  {
-    id: '4',
-    data: { label: 'Group B' },
-    position: { x: 320, y: 200 },
-    className: 'light',
-    style: { backgroundColor: 'rgba(255, 0, 0, 0.2)', width: 300, height: 300 },
-  },
-  {
-    id: '4a',
-    data: { label: 'Node B.1' },
-    position: { x: 15, y: 65 },
-    className: 'light',
-    parentNode: '4',
+    id: 'A-1',
+    data: { label: 'Child Node 1' },
+    position: { x: 10, y: 90 },
+    parentNode: 'A',
     extent: 'parent',
   },
   {
-    id: '4b',
-    data: { label: 'Group B.A' },
-    position: { x: 15, y: 120 },
-    className: 'light',
-    style: { backgroundColor: 'rgba(255, 0, 255, 0.2)', height: 150, width: 270 },
-    parentNode: '4',
+    id: 'A-2',
+    data: { label: 'Child Node 2' },
+    position: { x: 10, y: 180 },
+    parentNode: 'A',
+    extent: 'parent',
   },
   {
-    id: '4b1',
-    data: { label: 'Node B.A.1' },
-    position: { x: 20, y: 40 },
-    className: 'light',
-    parentNode: '4b',
+    id: 'A-3',
+    data: { label: 'Child Node 3' },
+    position: { x: 10, y: 270 },
+    parentNode: 'A',
+    extent: 'parent',
   },
   {
-    id: '4b2',
-    data: { label: 'Node B.A.2' },
-    position: { x: 100, y: 100 },
-    className: 'light',
-    parentNode: '4b',
+    id: 'B',
+    data: { label: "Title 2" },
+    position: { x: 400, y: 0 },
+    style: {
+      width: '20%',
+      height: '100%',
+      backgroundColor: 'rgba(255, 0, 0, 0)',
+      color: 'white',
+      border: "solid 2px grey",
+    },
+  },
+  {
+    id: 'B-1',
+    data: { label: 'Child Node 1' },
+    position: { x: 10, y: 10 },
+    parentNode: 'B',
+    extent: 'parent',
+  },
+  {
+    id: 'B-2',
+    data: { label: 'Child Node 2' },
+    position: { x: 10, y: 90 },
+    parentNode: 'B',
+    extent: 'parent',
+  },
+  {
+    id: 'B-3',
+    data: { label: 'Child Node 3' },
+    position: { x: 10, y: 170 },
+    parentNode: 'B',
+    extent: 'parent',
   },
 ];
 
 const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e1-3', source: '1', target: '3' },
-  { id: 'e2a-4a', source: '2a', target: '4a' },
-  { id: 'e3-4', source: '3', target: '4' },
-  { id: 'e3-4b', source: '3', target: '4b' },
-  { id: 'e4a-4b1', source: '4a', target: '4b1' },
-  { id: 'e4a-4b2', source: '4a', target: '4b2' },
-  { id: 'e4b1-4b2', source: '4b1', target: '4b2' },
+
 ];
 
 const NestedFlow = () => {
@@ -90,19 +91,22 @@ const NestedFlow = () => {
   }, []);
 
   return (
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      className="react-flow-subflows-example"
-      fitView
-    >
-      <MiniMap />
-      <Controls />
-      <Background />
-    </ReactFlow>
+    <>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        edgeTypes='smoothstep'
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        className="react-flow-subflows-example"
+        fitView
+      >
+        <MiniMap />
+        <Controls />
+        <Background />
+      </ReactFlow>
+    </>
   );
 };
 
