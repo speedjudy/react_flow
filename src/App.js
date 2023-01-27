@@ -12,7 +12,18 @@ import 'reactflow/dist/style.css';
 const initialNodes = [
   {
     id: 'A',
-    data: { label: 'Title A' },
+    data: {
+      label: (
+        <>
+          <div style={{ width: "100%" }}>
+            <span id="row1" style={{ float: "left" }}>
+              Title 1
+            </span>
+            <button onClick={this.handleAdd} id='A' style={{ float: 'right' }}>+</button>
+          </div>
+        </>
+      )
+    },
     position: { x: 0, y: 0 },
     style: {
       width: '20%',
@@ -45,7 +56,18 @@ const initialNodes = [
   },
   {
     id: 'B',
-    data: { label: "Title 2" },
+    data: {
+      label: (
+        <>
+          <div style={{ width: "100%" }}>
+            <span id="row2" style={{ float: "left" }}>
+              Title 2
+            </span>
+            <button style={{ float: 'right' }}>+</button>
+          </div>
+        </>
+      )
+    },
     position: { x: 400, y: 0 },
     style: {
       width: '20%',
@@ -58,21 +80,21 @@ const initialNodes = [
   {
     id: 'B-1',
     data: { label: 'Child Node 1' },
-    position: { x: 10, y: 10 },
+    position: { x: 10, y: 90 },
     parentNode: 'B',
     extent: 'parent',
   },
   {
     id: 'B-2',
     data: { label: 'Child Node 2' },
-    position: { x: 10, y: 90 },
+    position: { x: 10, y: 180 },
     parentNode: 'B',
     extent: 'parent',
   },
   {
     id: 'B-3',
     data: { label: 'Child Node 3' },
-    position: { x: 10, y: 170 },
+    position: { x: 10, y: 270 },
     parentNode: 'B',
     extent: 'parent',
   },
@@ -89,6 +111,28 @@ const NestedFlow = () => {
   const onConnect = useCallback((connection) => {
     setEdges((eds) => addEdge(connection, eds));
   }, []);
+
+  handleAdd = () => {
+    window.alert();
+  }
+  // const handleAdd = useCallback(
+  //   (event) => {
+  //     const rootId = event.target.id;
+  //     console.log(rootId, nodes);
+  //     // we need to remove the wrapper bounds, in order to get the correct position
+  //     // const newNode = {
+  //     //   id,
+  //     //   // we are removing the half of the node width (75) to center the new node
+  //     //   position: project({ x: event.clientX - left - 75, y: event.clientY - top }),
+  //     //   data: { label: `Node ${id}` },
+  //     // };
+
+  //     // setNodes((nds) => nds.concat(newNode));
+  //     // setEdges((eds) => eds.concat({ id, source: connectingNodeId.current, target: id }));
+  //   },
+  //   []
+  // );
+
 
   return (
     <>
