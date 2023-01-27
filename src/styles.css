@@ -1,10 +1,57 @@
-html, body, #root {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    background-color:black;
-  }
-   
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  background-color: black;
+}
+
+#addNodeBtn {
+  color: white;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+#group_header {
+  height: 35px;
+  background-color: #151515;
+  border: solid 1px #3C3C3C;
+}
+
+.react-flow__node.parent {
+  padding: 0 !important;
+}
+
+.react-flow__node {
+  padding: 0 !important;
+}
+
+#node_header {
+  background-color: #151515;
+    border: solid 1px #3C3C3C;
+    color: white;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+#node_content {
+  background-color: #0C0C0C;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: left;
+  padding-left: 10px;
+}
+#header_title {
+  font-size: 15px;
+  padding-top: 6px;
+  padding-left: 8px;
+}
